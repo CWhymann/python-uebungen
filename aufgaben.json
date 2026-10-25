@@ -1,10 +1,33 @@
 [
   {
+    "typ": "auswahl",
     "titel": "Gültige Variablennamen",
     "erklaerung": "Ein Variablenname beginnt mit einem Buchstaben oder Unterstrich, danach sind Buchstaben, Ziffern und Unterstriche erlaubt. Keine Leerzeichen, keine Sonderzeichen, keine Ziffer am Anfang und kein reserviertes Keyword (z. B. True, False, yield). Groß-/Kleinschreibung zählt.",
-    "aufgabe": "Gegeben ist die Liste namen. Trage für jeden Namen in ergebnis True (gültig) oder False (ungültig) ein, z. B. ergebnis['python123'] = True",
-    "starter": "namen = [\n    'python123',\n    '0815',\n    '__python__',\n    'Fehler',\n    'false',\n    'hallo_welt',\n    'True',\n    'nicht-richtig',\n    'tmp.2',\n    'yield',\n]\nergebnis = {}\n\nergebnis['python123'] = None  # True oder False eintragen\nergebnis['0815'] = None  # True oder False eintragen\nergebnis['__python__'] = None  # True oder False eintragen\nergebnis['Fehler'] = None  # True oder False eintragen\nergebnis['false'] = None  # True oder False eintragen\nergebnis['hallo_welt'] = None  # True oder False eintragen\nergebnis['True'] = None  # True oder False eintragen\nergebnis['nicht-richtig'] = None  # True oder False eintragen\nergebnis['tmp.2'] = None  # True oder False eintragen\nergebnis['yield'] = None  # True oder False eintragen\n",
-    "pruefung": "erwartet = {'python123': True, '0815': False, '__python__': True, 'Fehler': True, 'false': True, 'hallo_welt': True, 'True': False, 'nicht-richtig': False, 'tmp.2': False, 'yield': False}\nok = ergebnis == erwartet\nhinweis = 'Alle 10 richtig!' if ok else 'Noch nicht ganz. Achte auf Ziffern am Anfang, Sonderzeichen und reservierte Wörter.'"
+    "aufgabe": "Ist der Name ein gültiger Variablenname? Wähle für jeden Namen True (gültig) oder False (ungültig).",
+    "items": [
+      "python123",
+      "0815",
+      "__python__",
+      "Fehler",
+      "false",
+      "hallo_welt",
+      "True",
+      "nicht-richtig",
+      "tmp.2",
+      "yield"
+    ],
+    "loesung": {
+      "python123": true,
+      "0815": false,
+      "__python__": true,
+      "Fehler": true,
+      "false": true,
+      "hallo_welt": true,
+      "True": false,
+      "nicht-richtig": false,
+      "tmp.2": false,
+      "yield": false
+    }
   },
   {
     "titel": "Werte tauschen",
