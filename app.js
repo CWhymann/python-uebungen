@@ -117,13 +117,21 @@ function eingabeBauen(karte, a) {
   if (a.code) karte.appendChild(el("pre", "codeblock", a.code));
 
   const raster = el("div", "felder");
+  raster.style.gridTemplateColumns = "repeat(auto-fill, minmax(300px, 1fr))";
   const felder = a.felder.map((f) => {
     const zeile = el("div", "feld");
     const input = document.createElement("input");
     input.type = "text";
     input.spellcheck = false;
     input.autocomplete = "off";
-    zeile.append(el("span", "feld-label", f.label), input);
+    const label = el("span", "feld-label", f.label);
+    label.style.whiteSpace = "normal";
+    label.style.wordBreak = "break-word";
+    input.style.width = "100%";
+    zeile.style.flexDirection = "column";
+    zeile.style.alignItems = "stretch";
+    zeile.style.gap = "0.4rem";
+    zeile.append(label, input);
     raster.appendChild(zeile);
     return { zeile, input, f };
   });

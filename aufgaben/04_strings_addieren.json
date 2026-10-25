@@ -1,0 +1,23 @@
+[
+  {
+    "kapitel": "Strings",
+    "typ": "eingabe",
+    "titel": "Strings addieren und multiplizieren",
+    "erklaerung": "Mit + hängst du Strings aneinander, mit * wiederholst du einen String (String mal ganze Zahl). Subtrahieren oder Potenzieren geht bei Strings nicht und löst einen TypeError aus. Ein Ausdruck wie 3d ist schon vom Aufbau her ungültig (SyntaxError).",
+    "aufgabe": "Was wird ausgegeben? Schreibe genau die Ausgabe, ohne Anführungszeichen. Kommt es zu einem Fehler, schreibe Fehler (oder den Fehlernamen, z. B. TypeError).",
+    "code": "a = \"Developer\"\nb = \"Akademie\"\nc = '.'\nd = \"com\"",
+    "felder": [
+      { "label": "print(a + b)", "antwort": ["DeveloperAkademie"] },
+      { "label": "print(a + b + c + d)", "antwort": ["DeveloperAkademie.com"] },
+      { "label": "print(a + b - b)", "antwort": ["Fehler", "TypeError"] },
+      { "label": "print(5 * c)", "antwort": ["....."] },
+      { "label": "print(3d)", "antwort": ["Fehler", "SyntaxError"] },
+      { "label": "print(a + d)", "antwort": ["Developercom"] },
+      { "label": "print(a + b + d)", "antwort": ["DeveloperAkademiecom"] },
+      { "label": "print(d**2)", "antwort": ["Fehler", "TypeError"] },
+      { "label": "print(2 * (c + d))", "antwort": [".com.com"] },
+      { "label": "print(3 * c + 2 * d)", "antwort": ["...comcom"] }
+    ],
+    "hinweis_falsch": "Noch nicht alle richtig. Strings lassen sich nur mit + verbinden und mit einer ganzen Zahl mit * wiederholen. Minus und ** gehen nicht."
+  }
+]

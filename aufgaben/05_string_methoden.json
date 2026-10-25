@@ -1,0 +1,52 @@
+[
+  {
+    "kapitel": "Strings",
+    "typ": "eingabe",
+    "titel": "String-Methoden: Was wird ausgegeben?",
+    "erklaerung": "String-Methoden wie upper(), lower(), strip(), split(), replace(), count(), find() und index() liefern ein neues Ergebnis, der Original-String bleibt unverändert. Passt der übergebene Wert nicht (z. B. eine Zahl bei find() statt eines Strings), gibt es einen TypeError. index() löst einen ValueError aus, wenn nichts gefunden wird.",
+    "aufgabe": "Schreibe genau das, was print ausgibt, ohne Anführungszeichen um einfache Strings. Listen schreibst du so, wie Python sie anzeigt, z. B. ['a', 'b']. Bei einem Fehler schreibe Fehler. Achtung: passwort3 hat am Ende ein Leerzeichen.",
+    "code": "passwort1 = \"abc123\"\npasswort2 = \"Pass Wort\"\npasswort3 = \"u1tr4g3h31m \"",
+    "felder": [
+      { "label": "print(passwort1.upper())", "antwort": ["ABC123"] },
+      { "label": "print(passwort2.lower())", "antwort": ["pass wort"] },
+      { "label": "print(passwort3.islower())", "antwort": ["True"] },
+      { "label": "print(passwort2.isupper())", "antwort": ["False"] },
+      { "label": "print(passwort1.zfill(8))", "antwort": ["00abc123"] },
+      { "label": "print(passwort2.strip())", "antwort": ["Pass Wort"] },
+      { "label": "print(len(passwort3))", "antwort": ["12"] },
+      { "label": "print(passwort1.isalpha())", "antwort": ["False"] },
+      { "label": "print(passwort1[3:].isnumeric())", "antwort": ["True"] },
+      {
+        "label": "print(\"a;b;c;d;e\".split(';'))",
+        "antwort": ["['a', 'b', 'c', 'd', 'e']", "['a','b','c','d','e']"]
+      },
+      {
+        "label": "print(\"01.23.45.67.89\".split(';'))",
+        "antwort": ["['01.23.45.67.89']"]
+      },
+      {
+        "label": "print(passwort2.replace(\"Pass\",'.'))",
+        "antwort": [". Wort"]
+      },
+      { "label": "print(passwort3.count('3'))", "antwort": ["2"] },
+      { "label": "print(passwort2.count('s'))", "antwort": ["2"] },
+      {
+        "label": "print(passwort3.find(2+2))",
+        "antwort": ["Fehler", "TypeError"]
+      },
+      {
+        "label": "print(passwort1.index(\"4\"))",
+        "antwort": ["Fehler", "ValueError"]
+      }
+    ],
+    "hinweis_falsch": "Noch nicht alle richtig. Achte auf das Leerzeichen am Ende von passwort3, auf Groß-/Kleinschreibung und auf Zeilen, die einen Fehler auslösen."
+  },
+  {
+    "kapitel": "Strings",
+    "titel": "String-Methoden: Strings umwandeln",
+    "erklaerung": "Mit passenden String-Methoden (upper, lower, capitalize, zfill, ...) und Slicing wandelst du Strings in eine andere Form um. zfill(n) füllt links mit Nullen auf die Länge n auf. Mit [::-1] drehst du einen String um.",
+    "aufgabe": "Wandle die Strings s1 bis s5 um und speichere die Ergebnisse in e1 bis e5. Ziele: s1 wird PASSw0r7, s2 wird 000000Anime, s3 wird Florian, s4 wird kaguya, s5 wird 9876543210. Schreibe die Zielstrings nicht einfach hin.",
+    "starter": "s1 = \"passw0r7\"\ns2 = \"Anime\"\ns3 = \"florian\"\ns4 = \"Kaguya\"\ns5 = \"0123456789\"\n\n",
+    "pruefung": "ziele = {'e1': 'PASSw0r7', 'e2': '000000Anime', 'e3': 'Florian', 'e4': 'kaguya', 'e5': '9876543210'}\nwerte = {k: globals().get(k) for k in ziele}\nschummel = any(z in code for z in ['PASSw0r7', '000000Anime', 'Florian', 'kaguya', '9876543210'])\nok = werte == ziele and not schummel\nhinweis = 'Richtig! Alle fünf Umwandlungen stimmen.' if ok else 'Noch nicht. e1 bis e5 müssen die Zielstrings ergeben, per Methode oder Slicing aus s1 bis s5, ohne die Ziele einzutippen.'"
+  }
+]

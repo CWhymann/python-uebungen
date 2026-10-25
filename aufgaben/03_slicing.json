@@ -1,0 +1,29 @@
+[
+  {
+    "kapitel": "Strings",
+    "typ": "eingabe",
+    "titel": "Slicing: Was wird ausgegeben?",
+    "erklaerung": "Mit eckigen Klammern greifst du auf einzelne Zeichen oder Teilstücke eines Strings zu. Gezählt wird ab 0, negative Zahlen zählen von hinten (-1 ist das letzte Zeichen). Bei a[von:bis] ist das Zeichen an der Stelle bis nicht mehr dabei. Zu große Grenzen beim Slicing werden abgeschnitten, ein einzelner Index außerhalb des Strings ergibt dagegen einen IndexError.",
+    "aufgabe": "Schreibe genau das, was print ausgibt, ohne Anführungszeichen. Kommt es zu einem Fehler, schreibe Fehler.",
+    "code": "a = \"Buchhaltung\"\nb = \"Python ist toll!\"",
+    "felder": [
+      { "label": "print(a[5])", "antwort": ["a"] },
+      { "label": "print(b[-1])", "antwort": ["!"] },
+      { "label": "print(a[:4])", "antwort": ["Buch"] },
+      { "label": "print(b[11:16])", "antwort": ["toll!"] },
+      { "label": "print(a[-100:100])", "antwort": ["Buchhaltung"] },
+      { "label": "print(a[-5])", "antwort": ["l"] },
+      { "label": "print(a[-12])", "antwort": ["Fehler", "IndexError"] },
+      { "label": "print(a[4:8])", "antwort": ["halt"] }
+    ],
+    "hinweis_falsch": "Noch nicht alle richtig. Zähle die Stellen ab 0 und bedenke, dass beim Slicing das Zeichen an der Stelle bis nicht mehr dabei ist."
+  },
+  {
+    "kapitel": "Strings",
+    "titel": "Slicing: Substrings ausschneiden",
+    "erklaerung": "Mit wort[von:bis] schneidest du ein Teilstück aus einem String. Lässt du von weg, beginnt es am Anfang, lässt du bis weg, geht es bis zum Ende.",
+    "aufgabe": "Schneide mithilfe von Slicing aus wort nacheinander die Substrings Max, Maxi, im, mili und ian aus und gib jeden mit print aus (fünf Zeilen, in dieser Reihenfolge). Schreibe die Teilstücke nicht einfach hin, sondern schneide sie aus wort aus.",
+    "starter": "wort = \"Maximilian\"\n\n",
+    "pruefung": "erwartet = ['Max', 'Maxi', 'im', 'mili', 'ian']\nok = ausgabe.strip().split('\\n') == erwartet and code.count('wort[') >= 5\nhinweis = 'Richtig! Alle fünf Substrings stimmen.' if ok else 'Noch nicht. Fünf Zeilen in der Reihenfolge Max, Maxi, im, mili, ian, jeweils mit wort[von:bis] ausgeschnitten.'"
+  }
+]

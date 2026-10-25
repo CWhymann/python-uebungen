@@ -1,0 +1,46 @@
+[
+  {
+    "kapitel": "Operatoren",
+    "typ": "eingabe",
+    "titel": "Arithmetische Operatoren: Rechnen",
+    "erklaerung": "Es gilt Punkt vor Strich, Klammern gehen vor. / liefert immer eine Kommazahl (float), // rundet auf die ganze Zahl ab, % liefert den Rest der Division, ** potenziert und bindet stärker als *.",
+    "aufgabe": "Was kommt bei den folgenden Rechnungen als Ergebnis heraus? Schreibe das Ergebnis so, wie Python es anzeigt (z. B. 4.0 statt 4, wenn ein float herauskommt).",
+    "felder": [
+      { "label": "12 * 12", "antwort": ["144"] },
+      { "label": "2.5 + 3.5", "antwort": ["6.0"] },
+      { "label": "20 / 5", "antwort": ["4.0"] },
+      { "label": "15 - 3 * 5", "antwort": ["0"] },
+      { "label": "8 + 10//4", "antwort": ["10"] },
+      { "label": "8 + 10/4", "antwort": ["10.5"] },
+      { "label": "20 / (5 - 4)", "antwort": ["20.0"] },
+      { "label": "4 * 2.5 / 4", "antwort": ["2.5"] },
+      { "label": "1//2 - 3//4", "antwort": ["0"] },
+      { "label": "(12 % 5) * (5 % 12)", "antwort": ["10"] },
+      { "label": "2**3", "antwort": ["8"] },
+      { "label": "4**(8 - 5)", "antwort": ["64"] },
+      { "label": "2**(8 // 2)", "antwort": ["16"] },
+      { "label": "5**2 * 3", "antwort": ["75"] },
+      { "label": "(8 - 5)**(27 // 9)", "antwort": ["27"] }
+    ],
+    "hinweis_falsch": "Noch nicht alle richtig. Prüfe Punkt vor Strich, den Unterschied zwischen / und // und ob das Ergebnis ein float (mit .0) ist."
+  },
+  {
+    "kapitel": "Operatoren",
+    "typ": "eingabe",
+    "titel": "Arithmetische Operatoren: Mit Strings und Zahlen",
+    "erklaerung": "Auch + und * funktionieren mit Strings: + verbindet, * wiederholt (String mal ganze Zahl). Wird ein String 0-mal wiederholt, bleibt der leere String '' übrig.",
+    "aufgabe": "Was kommt heraus? Strings schreibst du mit Anführungszeichen (z. B. 'abc'), der leere String ist ''. Zahlen schreibst du so, wie Python sie anzeigt.",
+    "felder": [
+      { "label": "\"apfel\" + \"baum\"", "antwort": ["'apfelbaum'"] },
+      { "label": "5 * (\"a\" + \"b\")", "antwort": ["'ababababab'"] },
+      { "label": "\"x\" * 2**3", "antwort": ["'xxxxxxxx'"] },
+      { "label": "12 % 5", "antwort": ["2"] },
+      { "label": "42 % 43", "antwort": ["42"] },
+      { "label": "2**10 % 2", "antwort": ["0"] },
+      { "label": "5 * 4 * 3 * 2 * 1.0", "antwort": ["120.0"] },
+      { "label": "0 * \"Florian\"", "antwort": ["''"] },
+      { "label": "\"xyz\" * (12 % 5)", "antwort": ["'xyzxyz'"] }
+    ],
+    "hinweis_falsch": "Noch nicht alle richtig. Strings mit Anführungszeichen schreiben, Zahlen ohne. Bei 0 * String kommt der leere String '' heraus."
+  }
+]

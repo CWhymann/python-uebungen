@@ -1,12 +1,13 @@
+import glob
 import json
 import os
 import threading
 import webbrowser
-from flask import Flask, jsonify, request, send_from_directory
+from flask import Flask, jsonify, send_from_directory
 
 app = Flask(__name__)
 ORDNER = os.path.dirname(os.path.abspath(__file__))
-DATEI = os.path.join(ORDNER, "aufgaben.json")
+AUFGABEN_ORDNER = os.path.join(ORDNER, "aufgaben")
 
 
 @app.after_request
@@ -27,20 +28,11 @@ def appjs():
 
 @app.route("/aufgaben", methods=["GET"])
 def aufgaben():
-    with open(DATEI, "r", encoding="utf-8") as datei:
-        daten = json.load(datei)
-    return jsonify(daten)
-
-
-@app.route("/aufgaben", methods=["POST"])
-def aufgabe_speichern():
-    neue_aufgabe = request.get_json()
-    with open(DATEI, "r", encoding="utf-8") as datei:
-        daten = json.load(datei)
-    daten.append(neue_aufgabe)
-    with open(DATEI, "w", encoding="utf-8") as datei:
-        json.dump(daten, datei, ensure_ascii=False, indent=2)
-    return jsonify(neue_aufgabe), 201
+    alle = []
+    for pfad in sorted(glob.glob(os.path.join(AUFGABEN_ORDNER, "*.json"))):
+        with open(pfad, "r", encoding="utf-8") as datei:
+            alle.extend(json.load(datei))
+    return jsonify(alle)
 
 
 if __name__ == "__main__":

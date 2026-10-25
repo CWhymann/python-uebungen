@@ -59,33 +59,5 @@
     "aufgabe": "Schreibe einen print-Befehl mit einem f-String in dreifachen Anführungszeichen. Ausgabe: Mein Name ist Misa Amani. (Zeilenumbruch) Ich bin weiblich und wurde am 22. September 1998 geboren. Setze die Werte über die Variablen ein.",
     "starter": "vorname = \"Misa\"\nnachname = \"Amani\"\ngeschlecht = \"weiblich\"\ntag = 22\nmonat = \"September\"\njahr = \"1998\"\n\n",
     "pruefung": "erwartet = 'Mein Name ist Misa Amani.\\nIch bin weiblich und wurde am 22. September 1998 geboren.'\nok = ausgabe.strip() == erwartet and ('f\"\"\"' in code or \"f'''\" in code) and '{vorname}' in code\nhinweis = 'Richtig!' if ok else 'Noch nicht. Prüfe Punkt, Leerzeichen, den Zeilenumbruch, den f-String mit drei Anführungszeichen und die Variablen in geschweiften Klammern.'"
-  },
-  {
-    "kapitel": "Datentypen",
-    "typ": "eingabe",
-    "titel": "Datentypen umwandeln",
-    "erklaerung": "Mit int(), float(), str() und bool() wandelst du Werte in einen anderen Datentyp um. Manche Umwandlungen funktionieren immer, andere lösen eine Fehlermeldung aus, z. B. int(\"Hallo!\"). Bei bool() ist nur 0, 0.0 und der leere String False, alles andere ist True. int() schneidet Nachkommastellen ab.",
-    "aufgabe": "Welche Umwandlungen sind möglich und was ist das Ergebnis? Schreibe das Ergebnis so, wie Python es anzeigt. Strings mit Anführungszeichen (z. B. 'abc'). Schlägt die Umwandlung fehl, schreibe Fehler.",
-    "felder": [
-      { "label": "int(42.5)", "antwort": ["42"] },
-      { "label": "float(-1)", "antwort": ["-1.0"] },
-      { "label": "str(0.5)", "antwort": ["'0.5'"] },
-      { "label": "bool(0.001)", "antwort": ["True"] },
-      { "label": "str(\"False\")", "antwort": ["'False'"] },
-      { "label": "int(False)", "antwort": ["0"] },
-      { "label": "float(\"10\")", "antwort": ["10.0"] },
-      { "label": "bool('0')", "antwort": ["True"] },
-      { "label": "int(\"False\")", "antwort": ["Fehler", "fehler"] },
-      { "label": "float(\"True\")", "antwort": ["Fehler", "fehler"] }
-    ],
-    "hinweis_falsch": "Noch nicht alle richtig. Rot markierte Felder prüfen, besonders Strings und bool('0')."
-  },
-  {
-    "kapitel": "Datentypen",
-    "titel": "Datentyp einer Variable bestimmen",
-    "erklaerung": "Mit der eingebauten Funktion type() findest du heraus, welchen Datentyp eine Variable oder ein Wert hat, z. B. type(29) ergibt <class 'int'>. Du kannst auch direkt einen Wert übergeben wie type('Jim') oder type(True).",
-    "aufgabe": "Gib für jede der vier Variablen mit print(type(...)) den Datentyp aus, in der Reihenfolge name, alter, BMI, ledig.",
-    "starter": "name = \"Jim\"\nalter = 29\nBMI = 21.5\nledig = True\n\n",
-    "pruefung": "erwartet = [\"<class 'str'>\", \"<class 'int'>\", \"<class 'float'>\", \"<class 'bool'>\"]\nok = ausgabe.strip().split('\\n') == erwartet\nhinweis = 'Richtig! Alle vier Datentypen stimmen.' if ok else 'Noch nicht. Nutze print(type(name)) und so weiter, vier Zeilen in der richtigen Reihenfolge.'"
   }
 ]

@@ -1,0 +1,59 @@
+[
+  {
+    "kapitel": "Operatoren",
+    "typ": "auswahl",
+    "titel": "Logische Operatoren: Wahrheitswerte",
+    "erklaerung": "not kehrt um, and ist nur True, wenn beide Seiten True sind, or ist True, sobald eine Seite True ist, ^ (exklusives Oder) ist True, wenn genau eine Seite True ist. Reihenfolge: ^ vor not, dann and, dann or. Klammern gehen immer vor.",
+    "aufgabe": "Welche Wahrheitswerte kommen bei den folgenden logischen Ausdrücken heraus? Wähle True oder False.",
+    "items": [
+      "True and False and True or False",
+      "not False or not True",
+      "True and (False or not False)",
+      "not (not False ^ True or not False)",
+      "True and False ^ True and False"
+    ],
+    "loesung": {
+      "True and False and True or False": false,
+      "not False or not True": true,
+      "True and (False or not False)": true,
+      "not (not False ^ True or not False)": false,
+      "True and False ^ True and False": false
+    }
+  },
+  {
+    "kapitel": "Operatoren",
+    "typ": "auswahl",
+    "titel": "Der Unterschied zwischen ^ und or",
+    "erklaerung": "or ist das normale (einschließende) Oder, ^ ist das exklusive Oder (XOR): Es ist nur True, wenn genau eine der beiden Seiten True ist. Der Unterschied zeigt sich, wenn beide Seiten True sind.",
+    "aufgabe": "Stimmt die Aussage? Wähle True (stimmt) oder False (stimmt nicht).",
+    "items": [
+      "True ^ True ergibt False",
+      "True or True ergibt False",
+      "^ ist ein exklusives Oder (entweder das eine oder das andere)",
+      "or ergibt nur dann False, wenn beide Seiten False sind",
+      "False ^ False ergibt True"
+    ],
+    "loesung": {
+      "True ^ True ergibt False": true,
+      "True or True ergibt False": false,
+      "^ ist ein exklusives Oder (entweder das eine oder das andere)": true,
+      "or ergibt nur dann False, wenn beide Seiten False sind": true,
+      "False ^ False ergibt True": false
+    }
+  },
+  {
+    "kapitel": "Operatoren",
+    "typ": "eingabe",
+    "titel": "Logische Operatoren: Vergleiche und Rechnen",
+    "erklaerung": "Vergleiche (<, >, ==) und Rechenoperationen werden zuerst ausgewertet, danach ^, not, and und or. Achtung: ^ mit Zahlen rechnet bitweise, dabei kann auch eine Zahl statt True oder False herauskommen.",
+    "aufgabe": "Welche Ergebnisse kommen heraus? Schreibe True, False oder eine Zahl, so wie Python es anzeigt.",
+    "felder": [
+      { "label": "2 < 3 and not 2 > 5", "antwort": ["True"] },
+      { "label": "not True ^ False or 3 == 2 + 1", "antwort": ["True"] },
+      { "label": "not not not 2 % 5 == 7 % 5", "antwort": ["False"] },
+      { "label": "True and False ^ True and False", "antwort": ["False"] },
+      { "label": "True ^ False ^ 0 ^ 1 ^ (2 > 3)", "antwort": ["0", "False"] }
+    ],
+    "hinweis_falsch": "Noch nicht alle richtig. Werte erst Vergleiche und Rechnungen aus, dann ^, dann not, and, or. Bei der letzten Zeile kommt wegen der Zahlen eine Zahl heraus."
+  }
+]
