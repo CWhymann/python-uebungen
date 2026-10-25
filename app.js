@@ -55,6 +55,74 @@ async function start() {
         return;
       }
 
+      if (a.typ === "auswahl") {
+        const p = document.createElement("p");
+        p.className = "aufgabetext";
+        p.textContent = a.aufgabe;
+        div.appendChild(p);
+
+        const liste = document.createElement("div");
+        liste.className = "auswahl-liste";
+        const zeilenMap = {};
+
+        a.items.forEach((item) => {
+          const zeile = document.createElement("div");
+          zeile.className = "auswahl-zeile";
+          zeilenMap[item] = zeile;
+
+          const label = document.createElement("span");
+          label.className = "auswahl-name";
+          label.textContent = item;
+          zeile.appendChild(label);
+
+          const gruppe = document.createElement("div");
+          gruppe.className = "auswahl-optionen";
+
+          ["True", "False"].forEach((wert) => {
+            const optionLabel = document.createElement("label");
+            const input = document.createElement("input");
+            input.type = "radio";
+            input.name = "auswahl_" + i + "_" + item;
+            input.value = wert;
+            optionLabel.append(input, " " + wert);
+            gruppe.appendChild(optionLabel);
+          });
+
+          zeile.appendChild(gruppe);
+          liste.appendChild(zeile);
+        });
+
+        div.appendChild(liste);
+
+        const btn = document.createElement("button");
+        btn.textContent = "Prüfen";
+        const res = document.createElement("p");
+        res.className = "res";
+
+        btn.onclick = () => {
+          let alleRichtig = true;
+          a.items.forEach((item) => {
+            const gewaehlt = div.querySelector(
+              `input[name="auswahl_${i}_${item}"]:checked`,
+            );
+            const richtig =
+              gewaehlt && (gewaehlt.value === "True") === a.loesung[item];
+            const zeile = zeilenMap[item];
+            zeile.classList.remove("richtig", "falsch");
+            zeile.classList.add(richtig ? "richtig" : "falsch");
+            if (!richtig) alleRichtig = false;
+          });
+          res.className = "res " + (alleRichtig ? "ok" : "falsch");
+          res.textContent = alleRichtig
+            ? "✔ Alle richtig!"
+            : "✘ Noch nicht alle richtig, rot markierte Zeilen prüfen.";
+        };
+
+        div.append(btn, res);
+        aufgabenBox.appendChild(div);
+        return;
+      }
+
       const p = document.createElement("p");
       p.className = "aufgabetext";
       p.textContent = a.aufgabe;

@@ -139,6 +139,44 @@
       .falsch {
         color: var(--err);
       }
+      .auswahl-liste {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        margin-bottom: 0.8rem;
+      }
+      .auswahl-zeile {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.8rem;
+        background: #12141c;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 0.5rem 0.8rem;
+        flex-wrap: wrap;
+      }
+      .auswahl-zeile.richtig {
+        border-color: var(--ok);
+      }
+      .auswahl-zeile.falsch {
+        border-color: var(--err);
+      }
+      .auswahl-name {
+        font-family: var(--mono);
+        font-size: 13.5px;
+      }
+      .auswahl-optionen {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.85rem;
+      }
+      .auswahl-optionen label {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
