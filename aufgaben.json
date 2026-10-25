@@ -1,5 +1,6 @@
 [
   {
+    "kapitel": "Variablen",
     "typ": "auswahl",
     "titel": "Gültige Variablennamen",
     "erklaerung": "Ein Variablenname beginnt mit einem Buchstaben oder Unterstrich, danach sind Buchstaben, Ziffern und Unterstriche erlaubt. Keine Leerzeichen, keine Sonderzeichen, keine Ziffer am Anfang und kein reserviertes Keyword (z. B. True, False, yield). Groß-/Kleinschreibung zählt.",
@@ -30,38 +31,61 @@
     }
   },
   {
+    "kapitel": "Variablen",
     "titel": "Werte tauschen",
     "erklaerung": "Eine Zuweisung wie b = a kopiert nur den Wert, keine Verbindung. Zum Tauschen zweier Werte braucht man normalerweise eine Hilfsvariable (tmp). Python erlaubt aber auch die kompakte Schreibweise a, b = b, a, um mehrere Variablen in einer Zeile gleichzeitig zu vertauschen.",
-    "aufgabe": "Tausche die Werte von vorname und nachname. Die bestehenden Zeilen bleiben stehen, dein Code kommt darunter.",
-    "starter": "vorname = 'Mustermann'\nnachname = 'Max'\n",
-    "pruefung": "ok = vorname == 'Max' and nachname == 'Mustermann'\nhinweis = 'Richtig! Die Werte sind getauscht.' if ok else 'Noch nicht. vorname soll Max sein, nachname Mustermann.'"
+    "aufgabe": "Tausche die Werte von vorname und nachname, damit Vor- und Nachname stimmen. Die zwei Zeilen oben bleiben stehen, dein Code kommt darunter. Schreibe die Texte nicht neu hin, tausche nur die Variablen.",
+    "starter": "vorname = \"Mustermann\"\nnachname = \"Max\"\n\n",
+    "pruefung": "zusatz = '\\n'.join(code.split('\\n')[2:])\nok = vorname == 'Max' and nachname == 'Mustermann' and '\"' not in zusatz and \"'\" not in zusatz\nhinweis = 'Richtig! Die Werte sind getauscht.' if ok else 'Noch nicht. vorname soll Max sein, nachname Mustermann, getauscht ohne die Texte neu zu schreiben.'"
   },
   {
+    "kapitel": "Variablen",
+    "typ": "eingabe",
     "titel": "Welche Werte werden ausgegeben?",
     "erklaerung": "b = a kopiert nur den aktuellen Wert von a in b. Es entsteht keine dauerhafte Verbindung. Ändert sich a danach, bleibt b beim alten, kopierten Wert.",
-    "aufgabe": "Das Programm oben bleibt unverändert. Ergänze darunter print(a), print(b) und print(c).",
-    "starter": "a = 42\nb = a\nc = a\na = 10\nb = c\n",
-    "pruefung": "ok = ausgabe.split() == ['10', '42', '42']\nhinweis = 'Richtig! b und c haben den Wert 42 kopiert.' if ok else 'Noch nicht. b = a kopiert den Wert, er bleibt nicht mit a verbunden.'"
+    "aufgabe": "Lies das Programm Zeile für Zeile. Welche Werte geben die folgenden drei Befehle aus?",
+    "code": "a = 42\nb = a\nc = a\na = 10\nb = c",
+    "felder": [
+      { "label": "print(a)", "antwort": ["10"] },
+      { "label": "print(b)", "antwort": ["42"] },
+      { "label": "print(c)", "antwort": ["42"] }
+    ],
+    "hinweis_falsch": "Noch nicht. Gehe die Zeilen einzeln durch und notiere nach jeder Zeile, was in a, b und c steht."
   },
   {
+    "kapitel": "Variablen",
     "titel": "Mehrzeiliger f-String",
     "erklaerung": "Mit dreifachen Anführungszeichen \"\"\" kannst du Strings über mehrere Zeilen schreiben, \\n erzeugt zusätzlich einen Zeilenumbruch. In einem f-String (f\"...\") werden Variablen direkt in geschweiften Klammern {} eingesetzt.",
-    "aufgabe": "Schreibe einen print-Befehl mit einem f-String in dreifachen Anführungszeichen. Ausgabe: Mein Name ist Misa Amani. (Zeilenumbruch) Ich bin weiblich und wurde am 22. September 1998 geboren.",
-    "starter": "vorname = 'Misa'\nnachname = 'Amani'\ngeschlecht = 'weiblich'\ntag = 22\nmonat = 'September'\njahr = '1998'\n",
-    "pruefung": "erwartet = 'Mein Name ist Misa Amani.\\nIch bin weiblich und wurde am 22. September 1998 geboren.'\nok = ausgabe.strip() == erwartet\nhinweis = 'Richtig!' if ok else 'Noch nicht. Achte auf Punkt, Leerzeichen und den Zeilenumbruch.'"
+    "aufgabe": "Schreibe einen print-Befehl mit einem f-String in dreifachen Anführungszeichen. Ausgabe: Mein Name ist Misa Amani. (Zeilenumbruch) Ich bin weiblich und wurde am 22. September 1998 geboren. Setze die Werte über die Variablen ein.",
+    "starter": "vorname = \"Misa\"\nnachname = \"Amani\"\ngeschlecht = \"weiblich\"\ntag = 22\nmonat = \"September\"\njahr = \"1998\"\n\n",
+    "pruefung": "erwartet = 'Mein Name ist Misa Amani.\\nIch bin weiblich und wurde am 22. September 1998 geboren.'\nok = ausgabe.strip() == erwartet and ('f\"\"\"' in code or \"f'''\" in code) and '{vorname}' in code\nhinweis = 'Richtig!' if ok else 'Noch nicht. Prüfe Punkt, Leerzeichen, den Zeilenumbruch, den f-String mit drei Anführungszeichen und die Variablen in geschweiften Klammern.'"
   },
   {
+    "kapitel": "Datentypen",
+    "typ": "eingabe",
     "titel": "Datentypen umwandeln",
-    "erklaerung": "Mit int(), float(), str() und bool() wandelst du Werte in einen anderen Datentyp um. Manche Umwandlungen funktionieren immer (z. B. Zahl zu String), andere können scheitern und einen ValueError auslösen, z. B. int(\"Hallo!\"). Bei bool() ist nur 0, 0.0 und der leere String '' bzw. \"\" False, alles andere ist True.",
-    "aufgabe": "Für jeden Ausdruck im dict ausdruecke: führe ihn aus und trage das Ergebnis in ergebnis[...] ein. Schlägt die Umwandlung fehl (Exception), trage stattdessen den String 'Fehler' ein.",
-    "starter": "ausdruecke = {\n    'int(42.5)': lambda: int(42.5),\n    'float(-1)': lambda: float(-1),\n    'str(0.5)': lambda: str(0.5),\n    'bool(0.001)': lambda: bool(0.001),\n    'str(\"False\")': lambda: str('False'),\n    'int(False)': lambda: int(False),\n    'float(\"10\")': lambda: float('10'),\n    'bool(\"0\")': lambda: bool('0'),\n    'int(\"False\")': lambda: int('False'),\n    'float(\"True\")': lambda: float('True'),\n}\nergebnis = {}\n",
-    "pruefung": "erwartet = {'int(42.5)': 42, 'float(-1)': -1.0, 'str(0.5)': '0.5', 'bool(0.001)': True, 'str(\"False\")': 'False', 'int(False)': 0, 'float(\"10\")': 10.0, 'bool(\"0\")': True, 'int(\"False\")': 'Fehler', 'float(\"True\")': 'Fehler'}\nok = ergebnis == erwartet\nhinweis = 'Alle 10 richtig!' if ok else 'Noch nicht ganz. Prüfe besonders die String-Umwandlungen mit int/float und bool(\"0\").'"
+    "erklaerung": "Mit int(), float(), str() und bool() wandelst du Werte in einen anderen Datentyp um. Manche Umwandlungen funktionieren immer, andere lösen eine Fehlermeldung aus, z. B. int(\"Hallo!\"). Bei bool() ist nur 0, 0.0 und der leere String False, alles andere ist True. int() schneidet Nachkommastellen ab.",
+    "aufgabe": "Welche Umwandlungen sind möglich und was ist das Ergebnis? Schreibe das Ergebnis so, wie Python es anzeigt. Strings mit Anführungszeichen (z. B. 'abc'). Schlägt die Umwandlung fehl, schreibe Fehler.",
+    "felder": [
+      { "label": "int(42.5)", "antwort": ["42"] },
+      { "label": "float(-1)", "antwort": ["-1.0"] },
+      { "label": "str(0.5)", "antwort": ["'0.5'"] },
+      { "label": "bool(0.001)", "antwort": ["True"] },
+      { "label": "str(\"False\")", "antwort": ["'False'"] },
+      { "label": "int(False)", "antwort": ["0"] },
+      { "label": "float(\"10\")", "antwort": ["10.0"] },
+      { "label": "bool('0')", "antwort": ["True"] },
+      { "label": "int(\"False\")", "antwort": ["Fehler", "fehler"] },
+      { "label": "float(\"True\")", "antwort": ["Fehler", "fehler"] }
+    ],
+    "hinweis_falsch": "Noch nicht alle richtig. Rot markierte Felder prüfen, besonders Strings und bool('0')."
   },
   {
+    "kapitel": "Datentypen",
     "titel": "Datentyp einer Variable bestimmen",
-    "erklaerung": "Mit der eingebauten Funktion type() findest du heraus, welchen Datentyp eine Variable oder ein Wert hat, z. B. type(29) ergibt <class 'int'>. Eine Variable in die Klammer zu schreiben ist nicht zwingend nötig, du kannst auch direkt einen Wert übergeben wie type('Jim') oder type(True).",
-    "aufgabe": "Gegeben ist die Variable wert. Gib mit print(type(wert)) den Datentyp aus.",
-    "starter": "wert = 29\n\nprint(type(wert))\n",
-    "pruefung": "ok = \"class 'int'\" in ausgabe\nhinweis = 'Richtig!' if ok else 'Noch nicht. Nutze print(type(wert)).'"
+    "erklaerung": "Mit der eingebauten Funktion type() findest du heraus, welchen Datentyp eine Variable oder ein Wert hat, z. B. type(29) ergibt <class 'int'>. Du kannst auch direkt einen Wert übergeben wie type('Jim') oder type(True).",
+    "aufgabe": "Gib für jede der vier Variablen mit print(type(...)) den Datentyp aus, in der Reihenfolge name, alter, BMI, ledig.",
+    "starter": "name = \"Jim\"\nalter = 29\nBMI = 21.5\nledig = True\n\n",
+    "pruefung": "erwartet = [\"<class 'str'>\", \"<class 'int'>\", \"<class 'float'>\", \"<class 'bool'>\"]\nok = ausgabe.strip().split('\\n') == erwartet\nhinweis = 'Richtig! Alle vier Datentypen stimmen.' if ok else 'Noch nicht. Nutze print(type(name)) und so weiter, vier Zeilen in der richtigen Reihenfolge.'"
   }
 ]
