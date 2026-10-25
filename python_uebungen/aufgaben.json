@@ -1,0 +1,26 @@
+[
+  {
+    "titel": "Gültige Variablennamen",
+    "aufgabe": "Trage in ergebnis für jeden Namen True (gültig) oder False (ungültig) ein, z. B. ergebnis['python123'] = True",
+    "starter": "ergebnis = {}\n",
+    "pruefung": "erwartet = {'python123': True, '0815': False, '__python__': True, 'Fehler': True, 'false': True, 'hallo_welt': True, 'True': False, 'nicht-richtig': False, 'tmp.2': False, 'yield': False}\nok = ergebnis == erwartet\nhinweis = 'Alle 10 richtig!' if ok else 'Noch nicht ganz. Achte auf Ziffern am Anfang, Sonderzeichen und reservierte Wörter.'"
+  },
+  {
+    "titel": "Werte tauschen",
+    "aufgabe": "Tausche die Werte von vorname und nachname. Die bestehenden Zeilen bleiben stehen, dein Code kommt darunter.",
+    "starter": "vorname = 'Mustermann'\nnachname = 'Max'\n",
+    "pruefung": "ok = vorname == 'Max' and nachname == 'Mustermann'\nhinweis = 'Richtig! Die Werte sind getauscht.' if ok else 'Noch nicht. vorname soll Max sein, nachname Mustermann.'"
+  },
+  {
+    "titel": "Welche Werte werden ausgegeben?",
+    "aufgabe": "Das Programm oben bleibt unverändert. Ergänze darunter print(a), print(b) und print(c).",
+    "starter": "a = 42\nb = a\nc = a\na = 10\nb = c\n",
+    "pruefung": "ok = ausgabe.split() == ['10', '42', '42']\nhinweis = 'Richtig! b und c haben den Wert 42 kopiert.' if ok else 'Noch nicht. b = a kopiert den Wert, er bleibt nicht mit a verbunden.'"
+  },
+  {
+    "titel": "Mehrzeiliger f-String",
+    "aufgabe": "Schreibe einen print-Befehl mit einem f-String in dreifachen Anführungszeichen. Ausgabe: Mein Name ist Misa Amani. (Zeilenumbruch) Ich bin weiblich und wurde am 22. September 1998 geboren.",
+    "starter": "vorname = 'Misa'\nnachname = 'Amani'\ngeschlecht = 'weiblich'\ntag = 22\nmonat = 'September'\njahr = '1998'\n",
+    "pruefung": "erwartet = 'Mein Name ist Misa Amani.\\nIch bin weiblich und wurde am 22. September 1998 geboren.'\nok = ausgabe.strip() == erwartet\nhinweis = 'Richtig!' if ok else 'Noch nicht. Achte auf Punkt, Leerzeichen und den Zeilenumbruch.'"
+  }
+]

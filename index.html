@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Übungen zu Variablen</title>
+<style>
+body { font-family: sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; color: #222; }
+h1 { color: #e8635a; }
+.aufgabe { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; }
+textarea { width: 100%; font-family: monospace; font-size: 14px; box-sizing: border-box; }
+button { background: #e8635a; color: #fff; border: none; padding: .5rem 1rem; border-radius: 6px; cursor: pointer; margin-top: .5rem; }
+button:disabled { opacity: .5; }
+pre { background: #f4f4f4; padding: .6rem; border-radius: 6px; white-space: pre-wrap; }
+.ok { color: green; font-weight: bold; }
+.falsch { color: #b00020; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>Übungen zu Variablen</h1>
+<p id="status">Python wird geladen …</p>
+<div id="aufgaben"></div>
+
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+<script>
+const HARNESS = `
+import io, contextlib
+_buf = io.StringIO()
+_g = {}
+try:
+    with contextlib.redirect_stdout(_buf):
+        exec(user_code, _g)
+    _g['ausgabe'] = _buf.getvalue()
+    exec(pruefung_code, _g)
+except Exception as _e:
+    _g['ok'] = False
+    _g['hinweis'] = 'Fehler: ' + type(_e).__name__ + ': ' + str(_e)
+[bool(_g.get('ok', False)), str(_g.get('hinweis', '')), _buf.getvalue()]
+`;
+
+let py;
+const aufgabenBox = document.getElementById("aufgaben");
+
+async function start() {
+  py = await loadPyodide();
+  document.getElementById("status").textContent = "Bereit.";
+  const liste = await (await fetch("/aufgaben")).json();
+
+  liste.forEach((a, i) => {
+    const div = document.createElement("div");
+    div.className = "aufgabe";
+
+    const h = document.createElement("h2");
+    h.textContent = (i + 1) + ". " + a.titel;
+    const p = document.createElement("p");
+    p.textContent = a.aufgabe;
+    const ta = document.createElement("textarea");
+    ta.rows = 8;
+    ta.value = a.starter;
+    const btn = document.createElement("button");
+    btn.textContent = "Ausführen und prüfen";
+    const res = document.createElement("p");
+    const out = document.createElement("pre");
+
+    btn.onclick = async () => {
+      btn.disabled = true;
+      res.className = "";
+      res.textContent = "läuft …";
+      out.textContent = "";
+      py.globals.set("user_code", ta.value);
+      py.globals.set("pruefung_code", a.pruefung);
+      const r = await py.runPythonAsync(HARNESS);
+      const [ok, hinweis, ausgabe] = r.toJs();
+      r.destroy();
+      res.className = ok ? "ok" : "falsch";
+      res.textContent = (ok ? "✔ " : "✘ ") + hinweis;
+      if (ausgabe) out.textContent = "Ausgabe:\n" + ausgabe;
+      btn.disabled = false;
+    };
+
+    div.append(h, p, ta, btn, res, out);
+    aufgabenBox.appendChild(div);
+  });
+}
+start();
+</script>
+</body>
+</html>
