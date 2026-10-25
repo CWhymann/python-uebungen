@@ -5,11 +5,17 @@ from flask import Flask, jsonify, request, send_from_directory
 app = Flask(__name__)
 ORDNER = os.path.dirname(os.path.abspath(__file__))
 DATEI = os.path.join(ORDNER, "aufgaben.json")
+PYODIDE_ORDNER = os.path.join(ORDNER, "pyodide")
 
 
 @app.route("/")
 def start():
     return send_from_directory(ORDNER, "index.html")
+
+
+@app.route("/pyodide/<path:dateiname>")
+def pyodide_dateien(dateiname):
+    return send_from_directory(PYODIDE_ORDNER, dateiname)
 
 
 @app.route("/aufgaben", methods=["GET"])
