@@ -3,7 +3,7 @@
     "titel": "Gültige Variablennamen",
     "erklaerung": "Ein Variablenname beginnt mit einem Buchstaben oder Unterstrich, danach sind Buchstaben, Ziffern und Unterstriche erlaubt. Keine Leerzeichen, keine Sonderzeichen, keine Ziffer am Anfang und kein reserviertes Keyword (z. B. True, False, yield). Groß-/Kleinschreibung zählt.",
     "aufgabe": "Gegeben ist die Liste namen. Trage für jeden Namen in ergebnis True (gültig) oder False (ungültig) ein, z. B. ergebnis['python123'] = True",
-    "starter": "namen = ['python123', '0815', '__python__', 'Fehler', 'false', 'hallo_welt', 'True', 'nicht-richtig', 'tmp.2', 'yield']\nergebnis = {}\n",
+    "starter": "namen = [\n    'python123',\n    '0815',\n    '__python__',\n    'Fehler',\n    'false',\n    'hallo_welt',\n    'True',\n    'nicht-richtig',\n    'tmp.2',\n    'yield',\n]\nergebnis = {}\n\nergebnis['python123'] = \nergebnis['0815'] = \nergebnis['__python__'] = \nergebnis['Fehler'] = \nergebnis['false'] = \nergebnis['hallo_welt'] = \nergebnis['True'] = \nergebnis['nicht-richtig'] = \nergebnis['tmp.2'] = \nergebnis['yield'] = \n",
     "pruefung": "erwartet = {'python123': True, '0815': False, '__python__': True, 'Fehler': True, 'false': True, 'hallo_welt': True, 'True': False, 'nicht-richtig': False, 'tmp.2': False, 'yield': False}\nok = ergebnis == erwartet\nhinweis = 'Alle 10 richtig!' if ok else 'Noch nicht ganz. Achte auf Ziffern am Anfang, Sonderzeichen und reservierte Wörter.'"
   },
   {
@@ -35,8 +35,10 @@
     "pruefung": "erwartet = {'int(42.5)': 42, 'float(-1)': -1.0, 'str(0.5)': '0.5', 'bool(0.001)': True, 'str(\"False\")': 'False', 'int(False)': 0, 'float(\"10\")': 10.0, 'bool(\"0\")': True, 'int(\"False\")': 'Fehler', 'float(\"True\")': 'Fehler'}\nok = ergebnis == erwartet\nhinweis = 'Alle 10 richtig!' if ok else 'Noch nicht ganz. Prüfe besonders die String-Umwandlungen mit int/float und bool(\"0\").'"
   },
   {
-    "typ": "info",
     "titel": "Datentyp einer Variable bestimmen",
-    "erklaerung": "Mit der eingebauten Funktion type() findest du heraus, welchen Datentyp eine Variable oder ein Wert hat, z. B. type(29) ergibt <class 'int'>. Eine Variable in die Klammer zu schreiben ist nicht zwingend nötig, du kannst auch direkt einen Wert übergeben wie type(\"Jim\") oder type(True)."
+    "erklaerung": "Mit der eingebauten Funktion type() findest du heraus, welchen Datentyp eine Variable oder ein Wert hat, z. B. type(29) ergibt <class 'int'>. Eine Variable in die Klammer zu schreiben ist nicht zwingend nötig, du kannst auch direkt einen Wert übergeben wie type(\"Jim\") oder type(True).",
+    "aufgabe": "Gegeben ist die Variable wert. Gib mit print(type(wert)) den Datentyp aus.",
+    "starter": "wert = 29\n\nprint(type(wert))\n",
+    "pruefung": "ok = \"<class 'int'>\" in ausgabe\nhinweis = 'Richtig!' if ok else 'Noch nicht. Nutze print(type(wert)).'"
   }
 ]
