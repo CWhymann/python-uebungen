@@ -36,9 +36,9 @@
   },
   {
     "titel": "Datentyp einer Variable bestimmen",
-    "erklaerung": "Mit der eingebauten Funktion type() findest du heraus, welchen Datentyp eine Variable oder ein Wert hat, z. B. type(29) ergibt <class 'int'>. Eine Variable in die Klammer zu schreiben ist nicht zwingend nötig, du kannst auch direkt einen Wert übergeben wie type(\"Jim\") oder type(True).",
+    "erklaerung": "Mit der eingebauten Funktion type() findest du heraus, welchen Datentyp eine Variable oder ein Wert hat, z. B. type(29) ergibt <class 'int'>. Eine Variable in die Klammer zu schreiben ist nicht zwingend nötig, du kannst auch direkt einen Wert übergeben wie type('Jim') oder type(True).",
     "aufgabe": "Gegeben ist die Variable wert. Gib mit print(type(wert)) den Datentyp aus.",
     "starter": "wert = 29\n\nprint(type(wert))\n",
-    "pruefung": "ok = \"<class 'int'>\" in ausgabe\nhinweis = 'Richtig!' if ok else 'Noch nicht. Nutze print(type(wert)).'"
+    "pruefung": "ok = \"class 'int'\" in ausgabe\nhinweis = 'Richtig!' if ok else 'Noch nicht. Nutze print(type(wert)).'"
   }
 ]
