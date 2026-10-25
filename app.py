@@ -9,11 +9,6 @@ DATEI = os.path.join(ORDNER, "aufgaben.json")
 
 @app.route("/")
 def start():
-    return "Server läuft"
-
-
-@app.route("/seite")
-def seite():
     return send_from_directory(ORDNER, "index.html")
 
 

@@ -1,29 +1,160 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Übungen zu Variablen</title>
-<style>
-body { font-family: sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; color: #222; }
-h1 { color: #e8635a; }
-.aufgabe { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem; }
-textarea { width: 100%; font-family: monospace; font-size: 14px; box-sizing: border-box; }
-button { background: #e8635a; color: #fff; border: none; padding: .5rem 1rem; border-radius: 6px; cursor: pointer; margin-top: .5rem; }
-button:disabled { opacity: .5; }
-pre { background: #f4f4f4; padding: .6rem; border-radius: 6px; white-space: pre-wrap; }
-.ok { color: green; font-weight: bold; }
-.falsch { color: #b00020; font-weight: bold; }
-</style>
-</head>
-<body>
-<h1>Übungen zu Variablen</h1>
-<p id="status">Python wird geladen …</p>
-<div id="aufgaben"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Python Übungen</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐍</text></svg>"
+    />
+    <style>
+      :root {
+        --bg: #0f1117;
+        --card: #1a1d27;
+        --border: #2a2e3c;
+        --text: #e6e8ef;
+        --muted: #9aa0b4;
+        --accent: #ffd43b;
+        --accent2: #4b8bbe;
+        --ok: #3ecf8e;
+        --err: #ef5a5a;
+        --mono: "Consolas", "Menlo", monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: -apple-system, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 2.5rem 1.2rem 4rem;
+      }
+      header {
+        margin-bottom: 2rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+        margin: 0 0 0.3rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      h1 .dot1 {
+        color: var(--accent2);
+      }
+      h1 .dot2 {
+        color: var(--accent);
+      }
+      #status {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin: 0;
+      }
+      .aufgabe {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.4rem 1.5rem;
+        margin-bottom: 1.3rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+      }
+      .aufgabe.info {
+        border-left: 3px solid var(--accent2);
+      }
+      .nr {
+        color: var(--accent2);
+        font-weight: 600;
+        font-size: 0.8rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      h2 {
+        font-size: 1.1rem;
+        margin: 0.2rem 0 0.7rem;
+      }
+      .erklaerung {
+        background: #12141c;
+        border: 1px solid var(--border);
+        border-left: 3px solid var(--accent);
+        border-radius: 6px;
+        padding: 0.7rem 0.9rem;
+        font-size: 0.9rem;
+        color: var(--muted);
+        margin-bottom: 0.9rem;
+        line-height: 1.5;
+      }
+      .aufgabetext {
+        margin: 0 0 0.8rem;
+        line-height: 1.5;
+      }
+      textarea {
+        width: 100%;
+        font-family: var(--mono);
+        font-size: 13.5px;
+        background: #0b0d13;
+        color: #e6e8ef;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0.8rem;
+        resize: vertical;
+      }
+      button {
+        background: var(--accent2);
+        color: #0f1117;
+        border: none;
+        padding: 0.6rem 1.1rem;
+        border-radius: 7px;
+        cursor: pointer;
+        margin-top: 0.7rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: opacity 0.15s;
+      }
+      button:hover {
+        opacity: 0.85;
+      }
+      button:disabled {
+        opacity: 0.4;
+        cursor: default;
+      }
+      pre {
+        background: #0b0d13;
+        border: 1px solid var(--border);
+        padding: 0.7rem;
+        border-radius: 7px;
+        white-space: pre-wrap;
+        font-size: 13px;
+        margin-top: 0.6rem;
+      }
+      .res {
+        margin: 0.7rem 0 0;
+        font-weight: 600;
+      }
+      .ok {
+        color: var(--ok);
+      }
+      .falsch {
+        color: var(--err);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <span class="dot1">&lt;</span>Python Übungen<span class="dot2"
+          >&gt;</span
+        >
+      </h1>
+      <p id="status">Python wird geladen …</p>
+    </header>
+    <div id="aufgaben"></div>
 
-<script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
-<script>
-const HARNESS = `
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+    <script>
+      const HARNESS = `
 import io, contextlib
 _buf = io.StringIO()
 _g = {}
@@ -38,51 +169,70 @@ except Exception as _e:
 [bool(_g.get('ok', False)), str(_g.get('hinweis', '')), _buf.getvalue()]
 `;
 
-let py;
-const aufgabenBox = document.getElementById("aufgaben");
+      let py;
+      const aufgabenBox = document.getElementById("aufgaben");
 
-async function start() {
-  py = await loadPyodide();
-  document.getElementById("status").textContent = "Bereit.";
-  const liste = await (await fetch("/aufgaben")).json();
+      async function start() {
+        py = await loadPyodide();
+        document.getElementById("status").textContent = "Bereit.";
+        const liste = await (await fetch("/aufgaben")).json();
 
-  liste.forEach((a, i) => {
-    const div = document.createElement("div");
-    div.className = "aufgabe";
+        liste.forEach((a, i) => {
+          const div = document.createElement("div");
+          div.className = "aufgabe" + (a.typ === "info" ? " info" : "");
 
-    const h = document.createElement("h2");
-    h.textContent = (i + 1) + ". " + a.titel;
-    const p = document.createElement("p");
-    p.textContent = a.aufgabe;
-    const ta = document.createElement("textarea");
-    ta.rows = 8;
-    ta.value = a.starter;
-    const btn = document.createElement("button");
-    btn.textContent = "Ausführen und prüfen";
-    const res = document.createElement("p");
-    const out = document.createElement("pre");
+          const nr = document.createElement("div");
+          nr.className = "nr";
+          nr.textContent = "Aufgabe " + (i + 1);
+          const h = document.createElement("h2");
+          h.textContent = a.titel;
+          div.append(nr, h);
 
-    btn.onclick = async () => {
-      btn.disabled = true;
-      res.className = "";
-      res.textContent = "läuft …";
-      out.textContent = "";
-      py.globals.set("user_code", ta.value);
-      py.globals.set("pruefung_code", a.pruefung);
-      const r = await py.runPythonAsync(HARNESS);
-      const [ok, hinweis, ausgabe] = r.toJs();
-      r.destroy();
-      res.className = ok ? "ok" : "falsch";
-      res.textContent = (ok ? "✔ " : "✘ ") + hinweis;
-      if (ausgabe) out.textContent = "Ausgabe:\n" + ausgabe;
-      btn.disabled = false;
-    };
+          if (a.erklaerung) {
+            const erk = document.createElement("div");
+            erk.className = "erklaerung";
+            erk.textContent = a.erklaerung;
+            div.appendChild(erk);
+          }
 
-    div.append(h, p, ta, btn, res, out);
-    aufgabenBox.appendChild(div);
-  });
-}
-start();
-</script>
-</body>
+          if (a.typ === "info") {
+            aufgabenBox.appendChild(div);
+            return;
+          }
+
+          const p = document.createElement("p");
+          p.className = "aufgabetext";
+          p.textContent = a.aufgabe;
+          const ta = document.createElement("textarea");
+          ta.rows = 8;
+          ta.value = a.starter;
+          const btn = document.createElement("button");
+          btn.textContent = "Ausführen und prüfen";
+          const res = document.createElement("p");
+          res.className = "res";
+          const out = document.createElement("pre");
+
+          btn.onclick = async () => {
+            btn.disabled = true;
+            res.className = "res";
+            res.textContent = "läuft …";
+            out.textContent = "";
+            py.globals.set("user_code", ta.value);
+            py.globals.set("pruefung_code", a.pruefung);
+            const r = await py.runPythonAsync(HARNESS);
+            const [ok, hinweis, ausgabe] = r.toJs();
+            r.destroy();
+            res.className = "res " + (ok ? "ok" : "falsch");
+            res.textContent = (ok ? "✔ " : "✘ ") + hinweis;
+            if (ausgabe) out.textContent = "Ausgabe:\n" + ausgabe;
+            btn.disabled = false;
+          };
+
+          div.append(p, ta, btn, res, out);
+          aufgabenBox.appendChild(div);
+        });
+      }
+      start();
+    </script>
+  </body>
 </html>
