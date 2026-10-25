@@ -2,8 +2,8 @@
   {
     "titel": "Gültige Variablennamen",
     "erklaerung": "Ein Variablenname beginnt mit einem Buchstaben oder Unterstrich, danach sind Buchstaben, Ziffern und Unterstriche erlaubt. Keine Leerzeichen, keine Sonderzeichen, keine Ziffer am Anfang und kein reserviertes Keyword (z. B. True, False, yield). Groß-/Kleinschreibung zählt.",
-    "aufgabe": "Trage in ergebnis für jeden Namen True (gültig) oder False (ungültig) ein, z. B. ergebnis['python123'] = True",
-    "starter": "ergebnis = {}\n",
+    "aufgabe": "Gegeben ist die Liste namen. Trage für jeden Namen in ergebnis True (gültig) oder False (ungültig) ein, z. B. ergebnis['python123'] = True",
+    "starter": "namen = ['python123', '0815', '__python__', 'Fehler', 'false', 'hallo_welt', 'True', 'nicht-richtig', 'tmp.2', 'yield']\nergebnis = {}\n",
     "pruefung": "erwartet = {'python123': True, '0815': False, '__python__': True, 'Fehler': True, 'false': True, 'hallo_welt': True, 'True': False, 'nicht-richtig': False, 'tmp.2': False, 'yield': False}\nok = ergebnis == erwartet\nhinweis = 'Alle 10 richtig!' if ok else 'Noch nicht ganz. Achte auf Ziffern am Anfang, Sonderzeichen und reservierte Wörter.'"
   },
   {
